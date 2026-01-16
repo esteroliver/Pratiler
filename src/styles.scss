@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input{
+    @apply py-1 px-2 border-purple-200 border border-solid rounded-lg transition-all w-full;
+
+    &:hover{
+        @apply border-purple-300;
+    }
+
+    &:focus{
+        @apply ring ring-2 ring-purple-100 border-purple-300;
+    }
+}

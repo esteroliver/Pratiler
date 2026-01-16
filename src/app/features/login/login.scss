@@ -1,0 +1,19 @@
+main{
+    @apply max-w-[918px] p-8 flex flex-col items-center bg-gray-50; 
+}
+
+form{
+    @apply flex flex-col gap-2;
+}
+
+.titulo{
+    @apply font-bold text-center text-violet-950 text-2xl;
+}
+
+.campo{
+    @apply w-[500px];
+
+    label{
+        @apply text-sm text-violet-950 font-semibold mb-2;
+    }
+}
