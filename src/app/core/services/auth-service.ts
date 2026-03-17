@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { env } from '../environments/env.dev';
+import { env } from '../../../environments/env.dev';
 import { IJwtTokenResponse, ILogin } from '../model/interfaces/auth';
 import { tap } from 'rxjs';
 
