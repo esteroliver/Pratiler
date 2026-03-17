@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 body{
-    @apply min-h-[100vh];
+    min-height: 100vh;
+    font-family: "Roboto";
 }
