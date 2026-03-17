@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { InputDirective } from '../../shared/directives/input-directive';
 
 @Component({
   selector: 'app-login',
   imports: [
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    InputDirective
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
