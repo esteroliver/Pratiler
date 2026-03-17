@@ -1,21 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { env } from '../environments/env.dev';
-import { ILogin } from '../model/interfaces/auth';
-import { ILeitorPost } from '../model/interfaces/leitor';
+import { IJwtTokenResponse, ILogin } from '../model/interfaces/auth';
+import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private http = inject(HttpClient);
-  private apiUrl = env.api + "/auth"
+  private apiUrl = env.api + "/auth";
+
+  usuario = signal<IJwtTokenResponse | null>(null);
 
   autenticarUsuario(data: ILogin){
-    this.http.post(this.apiUrl + '/login', data);
+    this.http.post<IJwtTokenResponse>(this.apiUrl + '/login', data)
+    .pipe(
+      tap((response: IJwtTokenResponse) => {
+        this.usuario.set(response);
+      })
+    );
   }
   
-  cadastroUsuarioLeitor(data: ILeitorPost){
-    this.http.post(this.apiUrl + '/cadastro/leitor', data);
-  }
 }

@@ -3,6 +3,9 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputDirective } from '../../shared/directives/input-directive';
 import { BotaoGenerico } from '../../shared/components/botao-generico/botao-generico';
+import { UsuarioService } from '../../core/services/usuario-service';
+import { confirmarSenhaValidator } from '../../shared/validators/confirmar-senha-validator';
+import { ILeitorPost } from '../../core/model/interfaces/leitor';
 
 @Component({
   selector: 'app-cadastro',
@@ -17,6 +20,7 @@ import { BotaoGenerico } from '../../shared/components/botao-generico/botao-gene
 })
 export class Cadastro {
   private fb = inject(FormBuilder);
+  private usuarioService = inject(UsuarioService);
 
   form! : FormGroup;
 
@@ -27,7 +31,22 @@ export class Cadastro {
       email: [null, [Validators.required, Validators.email]],
       senha: [null, [Validators.required, Validators.minLength(8)]],
       confirmarSenha: [null, [Validators.required]]
+    }, {
+      validators: confirmarSenhaValidator
     });
+  }
+
+  submit(){
+    if(this.form.valid){
+      const leitorData : ILeitorPost = {
+        nome: this.form.get('nome')?.value,
+        biografia: this.form.get('biografia')?.value,
+        email: this.form.get('email')?.value,
+        senha: this.form.get('senha')?.value
+      };
+
+      this.usuarioService.cadastrarUsuarioLeitor(leitorData);
+    }
   }
 
 }
