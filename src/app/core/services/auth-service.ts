@@ -8,18 +8,34 @@ import { tap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+
   private http = inject(HttpClient);
   private apiUrl = env.api + "/auth";
 
-  usuario = signal<IJwtTokenResponse | null>(null);
+  email = signal<string | null>(sessionStorage.getItem('email'));
+  papelUsuario = signal<string | null>(sessionStorage.getItem('papelUsuario'));
+  autenticado = signal<boolean>(sessionStorage.getItem('token') !== null);
 
-  autenticarUsuario(data: ILogin){
-    this.http.post<IJwtTokenResponse>(this.apiUrl + '/login', data)
+  login(data: ILogin){
+    return this.http.post<IJwtTokenResponse>(this.apiUrl + '/login', data)
     .pipe(
       tap((response: IJwtTokenResponse) => {
-        this.usuario.set(response);
+        sessionStorage.setItem('token', response.token);
+        sessionStorage.setItem('email', response.email);
+        sessionStorage.setItem('papelUsuario', response.papelUsuario);
       })
     );
+  }
+
+  getToken(): string | null {
+    return sessionStorage.getItem('token');
+  }
+
+  logout(){
+    sessionStorage.clear();
+    this.email.set(null);
+    this.papelUsuario.set(null);
+    this.autenticado.set(false);
   }
   
 }
