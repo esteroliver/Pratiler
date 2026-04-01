@@ -1,1 +1,13 @@
+<<<<<<< Updated upstream
 /* You can add global styles to this file, and also import other style files */
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    min-height: 100vh;
+    font-family: "Roboto";
+    @apply bg-gray-50;
+}
+>>>>>>> Stashed changes
