@@ -1,60 +1,65 @@
 <main>
-    <h1 class="titulo">Criar Conta</h1>
+    <div class="logo">
+        <img src="pratiler.svg">
+    </div>
 
-    <form [formGroup]="form">
-        <div class="campo">
-            <label>Nome</label>
-            <input 
-                type="text"
-                appInputDirective
-                formControlName="nome"
-                placeholder="Digite o seu nome"
-            >
+    <div class="card-cadastro">
+
+        <h1 class="titulo">
+            Criar Conta
+        </h1>
+
+        <form [formGroup]="form">
+            <div class="campo">
+                <label>Nome</label>
+                <input
+                    type="text"
+                    appInputDirective
+                    formControlName="nome"
+                    placeholder="Digite o seu nome"
+                >
+            </div>
+            <div class="campo">
+                <label>Biografia</label>
+                <textarea
+                    type="text"
+                    appInputDirective
+                    formControlName="biografia"
+                    placeholder="Digite uma breve descrição sobre você"
+                >
+                </textarea>
+            </div>
+            <div class="campo">
+                <label>E-mail</label>
+                <input
+                    type="text"
+                    appInputDirective
+                    formControlName="email"
+                    placeholder="Digite o seu e-mail"
+                >
+            </div>
+            <div class="campo">
+                <label>Senha</label>
+                <input
+                    type="password"
+                    appInputDirective
+                    formControlName="senha"
+                    placeholder="Digite sua senha"
+                >
+            </div>
+            <div class="campo">
+                <label>Confirmar senha</label>
+                <input
+                    type="password"
+                    appInputDirective
+                    formControlName="confirmarSenha"
+                    placeholder="Confirme sua senha"
+                >
+            </div>
+        </form>
+
+        <div class="mt-4 flex justify-end">
+            <app-botao-generico legenda="Cadastrar" (clickEvent)="submit()" />
         </div>
-
-        <div class="campo">
-            <label>Biografia</label>
-            <textarea 
-                type="text"
-                appInputDirective
-                formControlName="biografia"
-                placeholder="Digite uma breve descrição sobre você"
-            >
-            </textarea>
-        </div>
-
-        <div class="campo">
-            <label>E-mail</label>
-            <input 
-                type="text"
-                appInputDirective
-                formControlName="email"
-                placeholder="Digite o seu e-mail"
-            >
-        </div>
-
-        <div class="campo">
-            <label>Senha</label>
-            <input 
-                type="password"
-                appInputDirective
-                formControlName="senha"
-                placeholder="Digite sua senha"
-            >
-        </div>
-
-        <div class="campo">
-            <label>Confirmar senha</label>
-            <input 
-                type="password"
-                appInputDirective
-                formControlName="confirmarSenha"
-                placeholder="Confirme sua senha"
-            >
-        </div>
-
-        <app-botao-generico
-        legenda="Enviar"
-        />
-    </form>
+    </div>
 </main>

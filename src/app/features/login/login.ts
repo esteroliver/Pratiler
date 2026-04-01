@@ -2,13 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputDirective } from '../../shared/directives/input-directive';
+import { BotaoGenerico } from '../../shared/components/botao-generico/botao-generico';
 
 @Component({
   selector: 'app-login',
   imports: [
     ReactiveFormsModule,
     CommonModule,
-    InputDirective
+    InputDirective,
+    BotaoGenerico
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
@@ -23,6 +25,10 @@ export class Login {
       email: [null, [Validators.required, Validators.email]],
       senha: [null, [Validators.required, Validators.minLength(8)]]
     });
+  }
+
+  submit(){
+    
   }
 
 }

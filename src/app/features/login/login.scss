@@ -1,5 +1,9 @@
 main{
-    @apply p-8 flex flex-col items-center bg-gray-50 h-full; 
+    @apply flex flex-col items-center justify-center gap-6 bg-purple-200 h-screen; 
+}
+
+.card-login{
+    @apply max-w-[40rem] bg-white rounded-lg shadow-md p-8;
 }
 
 form{
@@ -16,4 +20,8 @@ form{
     label{
         @apply text-sm text-violet-950 font-semibold mb-2;
     }
+}
+
+.logo{
+    @apply w-[24rem];
 }

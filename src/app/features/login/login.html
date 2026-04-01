@@ -1,21 +1,41 @@
 <main>
-    <h1 class="titulo">
-        Entrar
-    </h1>
+    <div class="logo">
+        <img src="pratiler.svg">
+    </div>
+    
+    <div class="card-login">
+        
+        <h1 class="titulo">
+            Entrar
+        </h1>
 
-    <form [formGroup]="form">
-        <div class="campo">
-            <label>
-                E-mail
-            </label>
-            <input type="text" appInputDirective formControlName="email" placeholder="Digite seu e-mail">
-        </div>
+        <form [formGroup]="form">
+            <div class="campo">
+                <label>
+                    E-mail
+                </label>
+                <input 
+                    type="text" 
+                    appInputDirective 
+                    formControlName="email" 
+                    placeholder="Digite seu e-mail"
+                >
+            </div>
+            <div class="campo">
+                <label>
+                    Senha
+                </label>
+                <input 
+                    type="text" 
+                    appInputDirective 
+                    formControlName="senha" 
+                    placeholder="Digite sua senha"
+                >
+            </div>
+        </form>
 
-        <div class="campo">
-            <label>
-                Senha
-            </label>
-            <input type="text" appInputDirective formControlName="senha" placeholder="Digite sua senha">
+        <div class="mt-4 flex justify-end">
+            <app-botao-generico legenda="Entrar" (clickEvent)="submit()" />
         </div>
-    </form>
+    </div>
 </main>
