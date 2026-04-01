@@ -38,7 +38,8 @@ export class Login {
 
     this.authService.login(value).subscribe({
       next: () => {
-        this.router.navigate(['home']);
+        console.log('Login bem-sucedido!');
+        //this.router.navigate(['home']);
       },
       error: (err) => {
         console.error('Erro ao fazer login: ', err);

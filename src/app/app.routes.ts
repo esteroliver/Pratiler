@@ -4,11 +4,11 @@ import { Cadastro } from './features/cadastro/cadastro';
 
 export const routes: Routes = [
     {
-        path: 'entrar',
+        path: '',
         component: Login
     },
     {
-        path: '',
+        path: 'cadastro',
         component: Cadastro
     }
 ];

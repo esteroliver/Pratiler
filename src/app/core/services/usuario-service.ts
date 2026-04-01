@@ -12,10 +12,6 @@ export class UsuarioService {
   private apiUrl = env.api + "/usuarios";
 
   cadastrarUsuarioLeitor(data: ILeitorPost){
-    this.http.post(this.apiUrl + '/cadastro/leitor', data);
-  }
-
-  login(data: ILogin){
-    this.http.post(this.apiUrl + '', data);
+    return this.http.post(this.apiUrl + '/cadastro/leitor', data);
   }
 }

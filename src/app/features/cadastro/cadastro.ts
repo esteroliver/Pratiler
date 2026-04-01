@@ -45,7 +45,14 @@ export class Cadastro {
         senha: this.form.get('senha')?.value
       };
 
-      this.usuarioService.cadastrarUsuarioLeitor(leitorData);
+      this.usuarioService.cadastrarUsuarioLeitor(leitorData).subscribe({
+        next: () => {
+          console.log('Usuário cadastrado com sucesso!');
+        },
+        error: (err) => {
+          console.error('Erro ao cadastrar usuário: ', err);
+        }
+      });
     }
   }
 
